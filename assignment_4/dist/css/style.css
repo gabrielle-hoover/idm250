@@ -1,0 +1,340 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after, q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+.container {
+	max-width: 1200px;
+	margin: 0 auto;
+	padding: 0 3%;
+}
+
+.header__content {
+	display: flex;
+	justify-content: flex-start;
+	align-items: flex-start;
+    background-color: rgba(0,0,0,0.75);
+    color: white;
+    margin: 0;
+    position: fixed;
+    width: 100%;
+}
+
+.header__logo {
+	max-width: 200px;
+}
+
+#menu-primary-site-menu {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+#menu-social-media-menu-1 {
+   	display: flex;
+	align-items: center;
+	justify-content: space-between; 
+}
+
+.menu-item {
+	display: block;
+	padding: 20px;
+}
+.menu-item a {
+	color: white;
+	text-decoration: none;
+    text-transform: uppercase;
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+    font-style: italic;
+    letter-spacing: 2px;
+}
+.menu-item:hover {
+	background-color: #FF1D00;
+}
+.menu-item:hover .sub-menu {
+	display: block;
+}
+.sub-menu {
+	display: none;
+}
+
+.current-menu-item {
+	border-bottom: 1px solid red;
+}
+
+.wp-block-quote {
+	margin-left: 10px;
+	border-left: 1px solid red;
+	margin-top: 20px;
+	margin-bottom: 20px;
+	font-size: 22px;
+	padding-left: 20px;
+}
+.post_title {
+	font-size: 28px;
+}
+.page-builder {
+	margin-top: 50px;
+}
+.page-builder * + * {
+	margin-top: 10px;
+}
+.page-builder h2 {
+	font-size: 40px;
+}
+.page-builder {
+	font-size: 16px;
+}
+
+.widgettitle {
+	font-size: 20px;
+	font-weight: bold;
+	margin-bottom: 10px;
+}
+
+.footer {
+	display: flex;
+    flex-direction: row !important;
+	justify-content: space-between;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+}
+
+.mobile_social_menu {
+    display: none;
+}
+
+#front-page-bg {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url(bg.jpg);
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index: -1000;
+}
+
+#navbg {
+    z-index: 1900;
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 90px;
+    height: 90px;
+    background-color: rgba(0,0,0,0.75);
+    border-bottom-right-radius: 70px;
+}
+
+/* mobile nav icon - taken from https://codepen.io/designcouch/pen/Atyop */
+
+#nav_icon_burger_x {
+  z-index: 2000;
+  display: none;
+  width: 45px;
+  height: 30px;
+  position: fixed;
+  top: 15px;
+  left: 15px;
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  -o-transform: rotate(0deg);
+  transform: rotate(0deg);
+  -webkit-transition: .5s ease-in-out;
+  -moz-transition: .5s ease-in-out;
+  -o-transition: .5s ease-in-out;
+  transition: .5s ease-in-out;
+  cursor: pointer;
+}
+
+#nav_icon_burger_x span {
+  display: block;
+  position: absolute;
+  height: 6px;
+  width: 100%;
+  background: white;
+  opacity: 1;
+  left: 0;
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  -o-transform: rotate(0deg);
+  transform: rotate(0deg);
+  -webkit-transition: .25s ease-in-out;
+  -moz-transition: .25s ease-in-out;
+  -o-transition: .25s ease-in-out;
+  transition: .25s ease-in-out;
+}
+
+#nav_icon_burger_x span:nth-child(1) {
+  top: 0px;
+}
+
+#nav_icon_burger_x span:nth-child(2),#nav_icon_burger_x span:nth-child(3) {
+  top: 18px;
+}
+
+#nav_icon_burger_x span:nth-child(4) {
+  top: 36px;
+}
+
+#nav_icon_burger_x.open span:nth-child(1) {
+  top: 18px;
+  width: 0%;
+  left: 50%;
+}
+
+#nav_icon_burger_x.open span:nth-child(2) {
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+#nav_icon_burger_x.open span:nth-child(3) {
+  -webkit-transform: rotate(-45deg);
+  -moz-transform: rotate(-45deg);
+  -o-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+}
+
+#nav_icon_burger_x.open span:nth-child(4) {
+  top: 18px;
+  width: 0%;
+  left: 50%;
+}
+
+.visible {
+    display: none;
+}
+
+.page-id-27 .js-blog-heading, .page-id-43 .js-blog-heading,{
+    display: none;
+}
+
+.page-id-27 {
+    background-color: black;
+    color: white;
+}
+
+.page-id-27 .wp-block-image, .page-id-27 .wp-block-image img {
+    margin: 0;
+    width: 100vw;
+}
+
+.page-id-27 .page-builder {
+    margin: 0;
+    width: 100vw;
+}
+
+.page-id-27 .container, .page-id-43 .container{
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    position: absolute;
+    z-index: -2000;
+    top: 0;
+}
+
+.page-id-43 img.attachment-post-thumbnail{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -2000;
+}
+
+.page-id-43 .page-builder{
+    display: grid;
+    grid-template-columns: auto auto;
+    width: 70vw;
+    margin: auto;
+}
+
+.page-id-43 figure {
+    width: 30vw;
+}
+
+.page-id-43 .container {
+    display: table;
+    min-width: 70vw;
+    margin: auto;
+}
+
+@media screen and (max-width: 480px){
+    .footer {
+        display: none;
+    }
+    .header {
+        position: absolute;
+        top: 0;
+        width: 80vw;
+        z-index: 1000;
+    }
+    .header__content {
+        height: 100vh;
+        padding-left: 50px;
+    }
+    #menu-primary-site-menu {
+        flex-direction: column;
+        padding: 20px 0;
+        align-items: flex-start;
+    }
+    li.menu-item {
+        padding: 10px 20px 10px 0;
+    }
+    .mobile_social_menu, #navbg {
+        display: block;
+    }
+    .menu-item {
+        padding: 10px;
+    }
+    #menu-social-media-menu {
+        display: grid;
+        grid-template-columns: auto auto;
+    }
+    .menu-primary-site-menu-container {
+        padding-top: 100px;
+    }
+    .header__content {
+        flex-direction: column;
+    }
+    #nav_icon_burger_x {
+        display: block;
+    }
+}
