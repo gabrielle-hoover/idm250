@@ -1,0 +1,766 @@
+/*color variables*/
+:root {
+    --main-bg-color: black;
+    --main-fg-color: white;
+    --main-accent-color: #ff1d00;
+    --menu-hover-color: rgba(255, 29, 0, 0.75);
+}
+
+/*-------------------------------------------------------------------
+        CSS Reset Stuff
+-------------------------------------------------------------------*/
+
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/*-------------------------------------------------------------------
+        Full page stuff
+-------------------------------------------------------------------*/
+
+/*default page color is black. Also helps make overflow less prominent*/
+html {
+    background-color: var(--main-bg-color);
+    color: var(--main-fg-color);
+}
+
+/*-------------------------------------------------------------------
+        Text Styles
+-------------------------------------------------------------------*/
+
+/*font family & color*/
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Cabin', Arial, Helvetica, sans-serif;
+    color: white;
+    text-shadow: 0px 3px 6px rgba(0,0,0,0.87);
+}
+
+h1 {
+    text-transform: uppercase;
+    font-size: 4rem;
+    letter-spacing: 3px;
+    max-width: 550px;
+}
+
+h2 {
+    text-transform: uppercase;
+    font-size: 2.75rem;
+    letter-spacing: 2px;
+}
+
+h3 {
+    text-transform: uppercase;
+    font-size: 1.5rem;
+    letter-spacing: 1.25px;
+}
+
+p, a {
+    font-family: 'Roboto', Tahoma, Geneva, sans-serif;
+    font-size: 1.125rem;
+    color: white;
+}
+
+a:Hover {
+    color: var(--main-accent-color);
+}
+
+th, td  {
+	font-family: 'Roboto', Arial, Helvetica, sans-serif;
+}
+
+/*-------------------------------------------------------------------
+        Applies to all menus
+-------------------------------------------------------------------*/
+
+.menu-item {
+	display: block;
+    padding: 20px;    
+}
+
+.menu-item a {
+   padding: 20px;
+}
+
+.menu-item:hover .sub-menu {
+	display: block;
+}
+
+.sub-menu {
+	display: none;
+}
+
+/*-------------------------------------------------------------------
+        Header menu stuff
+-------------------------------------------------------------------*/
+
+.header__content {
+	display: flex;
+	justify-content: flex-start;
+	align-items: flex-start;
+    background-color: rgba(0,0,0,0.75);
+    color: white;
+    margin: 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+}
+
+#menu-primary-site-menu {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+#menu-primary-site-menu .menu-item a {
+	color: white;
+	text-decoration: none;
+    text-transform: uppercase;
+    font-family: 'Roboto', Arial, sans-serif;
+    font-weight: 700;
+    font-style: italic;
+    letter-spacing: 2px;
+}
+
+#menu-social-media-menu-1 {
+   	display: flex;
+	align-items: center;
+	justify-content: space-between; 
+}
+
+#menu-primary-site-menu .menu-item:hover, #menu-primary-site-menu .current-menu-item {
+	background-color: var(--menu-hover-color);
+}
+
+/*-------------------------------------------------------------------
+        Footer Menu stuff
+-------------------------------------------------------------------*/
+
+.footer {
+	display: flex;
+    flex-direction: row;
+	justify-content: space-between;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+}
+
+/*-------------------------------------------------------------------
+        Mobile Menu stuff
+-------------------------------------------------------------------*/
+
+.mobile_social_menu {
+    display: none;
+}
+
+#navbg {
+    z-index: 1900;
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 90px;
+    height: 90px;
+    background-color: rgba(0,0,0,0.75);
+    border-bottom-right-radius: 70px;
+}
+
+/* mobile nav icon - taken from https://codepen.io/designcouch/pen/Atyop */
+
+#nav_icon_burger_x {
+  z-index: 2000;
+  display: none;
+  width: 45px;
+  height: 30px;
+  position: fixed;
+  top: 15px;
+  left: 15px;
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  -o-transform: rotate(0deg);
+  transform: rotate(0deg);
+  -webkit-transition: .5s ease-in-out;
+  -moz-transition: .5s ease-in-out;
+  -o-transition: .5s ease-in-out;
+  transition: .5s ease-in-out;
+  cursor: pointer;
+}
+
+#nav_icon_burger_x span {
+  display: block;
+  position: absolute;
+  height: 6px;
+  width: 100%;
+  background: white;
+  opacity: 1;
+  left: 0;
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  -o-transform: rotate(0deg);
+  transform: rotate(0deg);
+  -webkit-transition: .25s ease-in-out;
+  -moz-transition: .25s ease-in-out;
+  -o-transition: .25s ease-in-out;
+  transition: .25s ease-in-out;
+}
+
+#nav_icon_burger_x span:nth-child(1) {
+  top: 0px;
+}
+
+#nav_icon_burger_x span:nth-child(2),#nav_icon_burger_x span:nth-child(3) {
+  top: 18px;
+}
+
+#nav_icon_burger_x span:nth-child(4) {
+  top: 36px;
+}
+
+#nav_icon_burger_x.open span:nth-child(1) {
+  top: 18px;
+  width: 0%;
+  left: 50%;
+}
+
+#nav_icon_burger_x.open span:nth-child(2) {
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+#nav_icon_burger_x.open span:nth-child(3) {
+  -webkit-transform: rotate(-45deg);
+  -moz-transform: rotate(-45deg);
+  -o-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+}
+
+#nav_icon_burger_x.open span:nth-child(4) {
+  top: 18px;
+  width: 0%;
+  left: 50%;
+}
+
+/*.visible toggles display in js functions*/
+
+.visible {
+    display: none;
+}
+
+/*-------------------------------------------------------------------
+        Featured image is used as background image on many pages
+-------------------------------------------------------------------*/
+
+.ricky-background-image-main img{
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -10000000;
+}
+
+/*-------------------------------------------------------------------
+        Front page stuff
+-------------------------------------------------------------------*/
+
+#front-page-text-wrapper {
+    position: absolute;
+    bottom: 30px;
+    left: 30px;
+    color: white;
+}
+
+/*-------------------------------------------------------------------
+        Beats shopping page stuff
+-------------------------------------------------------------------*/
+
+ul.products {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 100% !important;
+}
+
+li.product {
+	float: none !important;
+	width: 100% !important;
+}
+
+.mejs-container, .mejs-controls, .mejs-button button {
+    background-color: rgba(0,0,0,0) !important;
+    height: 3.25rem !important;
+    width: 3.25rem !important;
+    margin: 0 !important;
+    border-radius: 50px;
+    background-image: url('../../img/playbutton.png') !important;
+}
+
+.mejs-container {
+    margin: 0 1rem !important;
+}
+
+.woocommerce-result-count {
+    display: none;
+}
+
+.ricky-woocommerce-shopwrapper {
+	 width: 95vw;
+    max-width: 815px;
+	 min-width: 310px;
+    margin: 10vh auto 0;
+	 display: flex;
+	 flex-direction: column;
+	 flex-wrap: wrap;
+	align-items: flex-start;
+}
+
+img.attachment-woocommerce_thumbnail  {
+    height: 3.25rem !important;
+    width: 3.25rem !important;
+}
+
+li.product {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    height: 5.5rem;
+    align-items: center;
+    border-top: 2px solid var(--main-fg-color);
+}
+
+li.product:last-child {
+    border-bottom: 2px solid var(--main-fg-color);
+}
+
+li.product img {
+    margin-right: 1rem;
+    box-shadow: 0 0 1.5px var(--main-fg-color);
+}
+
+li.product h2 {
+    font-size: 1.5rem !important;
+    font-weight: 400 !important;
+}
+
+/*beats page item play preview button and title are 
+attached to eachother so repeat both twice and only display the one i want
+*/
+.ricky-shoppage-playbutton-action-wrapper h2 {
+    display: none;
+}
+
+/*beats page item title*/
+.ricky-shoppage-song-title-action-wrapper div {
+    display: none;
+}
+
+/*beats page button for adding to cart*/
+.add_to_cart_button {
+    color: var(--main-bg-color) !important;
+    margin: 0 1rem 0 auto !important;
+    border-radius: 10px !important;
+    background-color: var(--main-accent-color) !important;
+    padding-left: 32px !important;
+    background-image: url("../../img/shopping-cart-teeny.png") !important;
+    background-repeat: no-repeat;
+    background-position: center left;
+}
+
+form.woocommerce-ordering {
+	border: 2px solid var(--main-fg-color);
+	border-radius: 10px;
+	padding: 0 8px;
+}
+
+select.orderby {
+	color: var(--main-fg-color);
+	background-color: rgba(0,0,0,0);
+	padding: 8px 0;
+	font-family: 'Roboto';
+	border: none;
+}
+
+.orderby input {
+	padding: 0 6px;
+}
+
+@media screen and (max-width: 700px) {
+	li.product {
+		justify-content: center;
+		height: 100%;
+		padding: 0.5rem 0 !important;
+		margin: 0 !important;
+	}
+	.add_to_cart_button {
+		
+	}
+	li.product img {
+		display: none;
+	}
+	ricky-shoppage-song-title-action-wrapper h2 {
+		max-width: 25%;
+		margin: 0 0.5rem;
+	}
+	.added_to_cart {
+		display: none !important;
+	}
+}
+
+/*-------------------------------------------------------------------
+        Shopping cart page stuff
+-------------------------------------------------------------------*/
+
+#ricky-cart-page-content-wrapper {
+	max-width: 1000px;
+	margin: 15vh auto 0;
+}
+
+table.shop_table, .cart_totals {
+	color: var(--main-fg-color);
+	background-color: var(--main-bg-color);
+	padding: 0.5rem;
+	border-collapse: collapse;
+}
+
+.woocommerce-cart-form__contents thead th, tbody tr td {
+	border-bottom: 1px solid var(--main-fg-color);
+}
+
+.cart_totals tbody tr td, .woocommerce-cart-form__contents tbody tr td:last-child {
+	border-bottom: none;
+}
+
+.woocommerce-cart-form__contents, .cart_totals table, td.product-quantity input, label {
+	font-family: 'Roboto', Arial, Helvetica, sans-serif;
+}
+
+a.checkout-button {
+	background-color: var(--main-accent-color) !important;
+	color: var(--main-bg-color) !important;
+}
+
+a.checkout-button:hover, .woocommerce-cart button:hover {
+	background-color: var(--menu-hover-color) !important;
+	color: var(--main-fg-color) !important;
+}
+
+td.product-quantity input {
+	background-color: var(--main-bg-color);
+	color: var(--main-fg-color);
+	border: 1px solid white;
+}
+
+div.woocommerce-message, .woocommerce-info {
+	background-color: var(--main-bg-color) !important;
+	color: var(--main-fg-color);
+	font-family: 'Roboto', Arial, Helvetica, sans-serif;
+	border-top-color: var(--main-accent-color);
+}
+
+div.woocommerce-message::before, .woocommerce-info::before {
+	color: var(--main-accent-color);
+}
+
+@media screen and (min-width: 700px) {
+	table.shop_table, .cart_totals {
+		padding: 0;
+	}
+}
+
+/*-------------------------------------------------------------------
+        Checkout page stuff
+-------------------------------------------------------------------*/
+
+div.woocommerce-checkout-payment, div.woocommerce-checkout-payment p {
+	color: var(--main-bg-color) !important;
+}
+
+div.woocommerce-checkout-payment {
+	background-color: var(--main-accent-color) !important;
+}
+
+.payment_method_bacs::after {
+	background-color: #515151;
+}
+
+.woocommerce-checkout button {
+	background-color: var(--main-bg-color) !important;
+	color: var(--main-fg-color) !important;
+}
+
+.woocommerce-checkout button:hover {
+	background-color: var(--main-fg-color) !important;
+	color: var(--main-bg-color) !important;
+}
+
+.woocommerce-checkout a:hover {
+	color: var(--main-bg-color) !important;
+}
+
+form.checkout {
+	margin: 12vh auto;
+	max-width: 1000px;
+	background-color: var(--main-bg-color);
+}
+
+/*-------------------------------------------------------------------
+        Order Confirmation page stuff
+-------------------------------------------------------------------*/
+
+.woocommerce-order {
+	width: 90%;
+	height: 90%;
+	margin: 10vh auto;
+}
+
+/*-------------------------------------------------------------------
+        Music page stuff
+-------------------------------------------------------------------*/
+
+.page-template-music .container {
+    display: table;
+    min-width: 70vw;
+    margin: auto;
+}
+
+.all-songs-grid-container {
+    display: grid;
+    grid-template-columns: auto auto;
+    justify-content: center;
+    align-items: center;
+    grid-gap: 90px;
+    max-width: 800px;
+    margin: 20vh auto;
+}
+
+img.main-song-album-img {
+    width: 300px;
+    height: 300px;
+    box-shadow: 0px 0px 3px 1px rgba(255,255,255,0.5);
+    float: left;
+    margin-right: 0.5rem;
+}
+
+/*song title*/
+.ricky-martin-lazyblocks-song-container h3 {
+    writing-mode: vertical-lr;
+    min-height: 200px;
+    text-align: center;
+}
+
+/*song links*/
+.ricky-martin-lazyblocks-song-links-wrapper {
+    display: flex;
+    width: 300px;
+    justify-content: center; 
+    padding-top: 8px;
+}
+
+a.ricky-martin-lazyblocks-song-links-apple {
+    margin-right: 1.5rem;
+}
+
+img.ricky-martin-lazyblocks-song-links-spotify-img {
+    content:url("../../img/song-links/listen-on-spotify.svg");
+    width: 93px;
+}
+
+img.ricky-martin-lazyblocks-song-links-spotify-img:hover {
+    content:url("../../img/song-links/listen-on-spotify-hover.svg");
+    width: 93px;
+}
+
+img.ricky-martin-lazyblocks-song-links-apple-img {
+    content:url("../../img/song-links/listen-on-applemusic.svg");
+    width: 130px;
+    transition: 0.5s ease-in-out;
+}
+
+img.ricky-martin-lazyblocks-song-links-apple-img:hover {
+    content:url("../../img/song-links/listen-on-applemusic-hover.svg");
+    width: 130px;
+}
+
+@media screen and (max-width: 700px) {
+	.all-songs-grid-container {
+		grid-template-columns: auto;
+	}
+	.ricky-martin-lazyblocks-song-container h3 {
+		writing-mode: horizontal-tb;
+	}
+	.all-songs-grid-container img {
+		margin-bottom: 1rem; 
+	}
+}
+
+/*-------------------------------------------------------------------
+        Photos page stuff
+-------------------------------------------------------------------*/
+
+.page-template-photos {
+    background-color: black;
+    color: white;
+}
+
+.page-template-photos .wp-block-image img {
+    width: 100vw;
+    height: auto;
+}
+
+.page-template-photos figure.wp-block-image {
+    margin: 0;
+    height: auto;
+}
+
+/*-------------------------------------------------------------------
+        Search Page Stuff
+-------------------------------------------------------------------*/
+
+.search main, .search-results main, search-no-results main {
+	width: 90%;
+	max-width: 700px;
+	margin: 15vh auto;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+#searchpagebutton {
+	background-color: var(--main-accent-color) !important;
+	color: var(--main-bg-color) !important;
+	font-family: 'Roboto', Tahoma, Geneva, sans-serif;
+	border-radius: 5px;
+	border: none;
+	padding: 0.25rem;
+}
+
+#searchpagebutton:hover {
+	background-color: var(--menu-hover-color) !important;
+	color: var(--main-fg-color) !important;
+}
+
+
+
+/*-------------------------------------------------------------------
+        Media Queries
+-------------------------------------------------------------------*/
+
+/*change text size front page*/
+@media screen and (min-width: 1017px) and (max-width: 1280px){
+    #front-page-text-wrapper h2 {
+        max-width: 60vw;
+    }
+}
+
+/*change text size front page */
+@media screen and (max-width: 700px){
+    #front-page-text-wrapper h1 {
+        font-size: 2.5rem;
+    } 
+    #front-page-text-wrapper h2 {
+        font-size: 1.5rem;
+    } 
+    #front-page-text-wrapper {
+        bottom: 80px;
+        margin: 0 auto;
+    }
+}
+
+
+/*switch to mobile nav*/
+@media screen and (max-width: 480px){
+    #nav_icon_burger_x {
+        display: block;
+		  z-index: 900000000;
+    }
+    .header {
+        position: absolute;
+        top: 0;
+        width: 80vw;
+        z-index: 100000;
+    }
+    .header__content {
+        height: 100vh;
+        padding-left: 50px;
+        flex-direction: column;
+        width: 80vw;
+    }
+    .menu-item {
+        padding: 10px;
+    }
+    li.menu-item {
+        padding: 10px 20px 10px 0;
+    }
+    .menu-primary-site-menu-container {
+        padding-top: 100px;
+    }
+    #menu-primary-site-menu {
+        flex-direction: column;
+        padding: 20px 0;
+        align-items: flex-start;
+    }
+    #menu-social-media-menu {
+        display: grid;
+        grid-template-columns: auto auto;
+    }
+    .mobile_social_menu, #navbg {
+        display: block;
+    }
+    .footer {
+        display: none;
+    }
+    /*text on front page doesnt overlap footer anymore*/
+    #front-page-text-wrapper {
+        bottom: 30px;
+    }
+    #front-page-text-wrapper h1 {
+        font-size: 2rem;
+    }
+}
