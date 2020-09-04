@@ -21,7 +21,7 @@ get_header();?>
       <ul>
         <?php while (have_posts()) : the_post(); ?>
 				 <li class="">
-						 <h1 class="post_title"><?php if (get_the_title()!='Search'){ echo the_title() ;}; ?></h1>
+						 <h2 class="post_title"><?php if (get_the_title()!='Search'){ echo the_title() ;}; ?></h2>
 				 </li>
 			<?php endwhile; ?>
       </ul>
