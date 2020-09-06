@@ -7,9 +7,9 @@
 get_header();?>
 <main class="main-content">
   <!-- Search -->
-  <section>
-    <form action="/idm250/wordpress/" method="get">
-      <label for="searchField">Search</label>
+  <section id="searchbar">
+    <form action="/idm250/" method="get">
+      <label for="searchField"></label>
       <input type="text" name="s" id="searchField" value="<?php the_search_query(); ?>">
       <input id="searchpagebutton" type="submit" value="Search">
     </form>
@@ -21,7 +21,7 @@ get_header();?>
       <ul>
         <?php while (have_posts()) : the_post(); ?>
 				 <li class="">
-						 <h2 class="post_title"><?php if (get_the_title()!='Search'){ echo the_title() ;}; ?></h2>
+						 <a href=<?php echo the_permalink()?>><h2 class="post_title"><?php if (get_the_title()!='Search'){ echo the_title() ;}; ?></h2></a>
 				 </li>
 			<?php endwhile; ?>
       </ul>

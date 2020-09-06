@@ -2,16 +2,16 @@ window.onresize = adjustMenu;
 window.onload = setMenu;
 
 function setMenu() {
-    if(window.innerWidth < 480) {
+    if(window.innerWidth < 1015) {
         document.getElementById("my_site_header_nav").classList.add('visible');
     }
 }
 
 function adjustMenu() {
-    if(window.innerWidth > 480) {
+    if(window.innerWidth > 1015) {
         document.getElementById("my_site_header_nav").classList.remove('visible');
     }
-    if(window.innerWidth < 480) {
+    if(window.innerWidth < 1015) {
         document.getElementById("my_site_header_nav").classList.add('visible');
         document.getElementById("navbg").classList.remove('visible');
     }

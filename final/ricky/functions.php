@@ -47,28 +47,6 @@ function include_js_files() {
 add_action('wp_enqueue_scripts', 'include_js_files');
 
 /**
- * Register custom sidebar for my theme
- *
- * @link https://developer.wordpress.org/reference/functions/register_sidebar/
- * @return void
- */
-function register_theme_sidebar() {
-    register_sidebar([
-        'name'        => 'Blog Sidebar',
-        'id'          => 'blog-sidebar',
-        'description' => 'This is a custom sidebar for my theme'
-    ]);
-
-     register_sidebar([
-         'name'        => 'Footer Column 1',
-         'id'          => 'footer-column-1',
-         'description' => 'This is a custom sidebar for my theme'
-     ]);
-}
-
-add_action('widgets_init', 'register_theme_sidebar');
-
-/**
  * Register the menus on my site
  *
  * @link https://developer.wordpress.org/reference/functions/register_nav_menus/

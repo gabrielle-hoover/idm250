@@ -80,6 +80,20 @@ h1, h2, h3, h4, h5, h6 {
     text-shadow: 0px 3px 6px rgba(0,0,0,0.87);
 }
 
+p, a, th, td, input, #searchpagebutton {
+    font-family: 'Roboto', Tahoma, Geneva, sans-serif;
+}
+
+p, a {
+	 font-size: 1.125rem;
+    color: white;
+}
+
+a:Hover {
+    color: var(--main-accent-color);
+}
+
+/*individual styles for text elements*/
 h1 {
     text-transform: uppercase;
     font-size: 4rem;
@@ -99,18 +113,34 @@ h3 {
     letter-spacing: 1.25px;
 }
 
-p, a {
-    font-family: 'Roboto', Tahoma, Geneva, sans-serif;
-    font-size: 1.125rem;
-    color: white;
+h4 {
+	 text-transform: uppercase;
+    font-size: 1rem;
+    letter-spacing: 0.75px;
 }
 
-a:Hover {
-    color: var(--main-accent-color);
+h5 {
+	 text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 0.5px;
 }
 
-th, td  {
-	font-family: 'Roboto', Arial, Helvetica, sans-serif;
+h6 {
+	 text-transform: uppercase;
+    font-size: 0.75rem;
+    letter-spacing: 0.25px;
+}
+
+th {
+	font-size: 1.25rem;
+}
+
+td {
+	font-size: 1rem;
+}
+
+p {
+	line-height: 1.5rem;
 }
 
 /*-------------------------------------------------------------------
@@ -119,7 +149,7 @@ th, td  {
 
 .menu-item {
 	display: block;
-    padding: 20px;    
+	padding: 20px;    
 }
 
 .menu-item a {
@@ -142,12 +172,17 @@ th, td  {
 	display: flex;
 	justify-content: flex-start;
 	align-items: flex-start;
-    background-color: rgba(0,0,0,0.75);
-    color: white;
-    margin: 0;
-    position: fixed;
-    width: 100%;
-    top: 0;
+	background-color: rgba(0,0,0,0.75);
+	color: white;
+	margin: 0;
+	position: fixed;
+	width: 100%;
+	top: 0;
+}
+
+ul.menu-primary-site-menu li a{
+	font-size: 3.8125rem;
+	width: auto;
 }
 
 #menu-primary-site-menu {
@@ -159,15 +194,15 @@ th, td  {
 #menu-primary-site-menu .menu-item a {
 	color: white;
 	text-decoration: none;
-    text-transform: uppercase;
-    font-family: 'Roboto', Arial, sans-serif;
-    font-weight: 700;
-    font-style: italic;
-    letter-spacing: 2px;
+	text-transform: uppercase;
+	font-family: 'Roboto', Arial, sans-serif;
+	font-weight: 700;
+	font-style: italic;
+	letter-spacing: 2px;
 }
 
 #menu-social-media-menu-1 {
-   	display: flex;
+   display: flex;
 	align-items: center;
 	justify-content: space-between; 
 }
@@ -182,11 +217,15 @@ th, td  {
 
 .footer {
 	display: flex;
-    flex-direction: row;
+	flex-direction: row;
 	justify-content: space-between;
-    position: fixed;
-    bottom: 0;
-    right: 0;
+	position: fixed;
+	bottom: 0;
+	right: 0;
+}
+
+ul#menu-social-media-menu-1 li {
+	padding: 20px 10px;
 }
 
 /*-------------------------------------------------------------------
@@ -458,9 +497,16 @@ select.orderby {
         Shopping cart page stuff
 -------------------------------------------------------------------*/
 
+.woocommerce-cart .page-builder{
+	position: absolute;
+	display: block;
+	top: 3.8125rem;
+	width: 100%;
+}
+
 #ricky-cart-page-content-wrapper {
 	max-width: 1000px;
-	margin: 15vh auto 0;
+	margin: 10vh auto 0;
 }
 
 table.shop_table, .cart_totals {
@@ -549,6 +595,7 @@ form.checkout {
 	margin: 12vh auto;
 	max-width: 1000px;
 	background-color: var(--main-bg-color);
+	padding: 0.5rem;
 }
 
 /*-------------------------------------------------------------------
@@ -642,6 +689,29 @@ img.ricky-martin-lazyblocks-song-links-apple-img:hover {
 }
 
 /*-------------------------------------------------------------------
+        Videos page stuff
+-------------------------------------------------------------------*/
+.videos-container {
+	width: 100%;
+	height: auto;
+	z-index: 100;
+}
+
+.videos-container iframe {
+	width: 100vw;
+	height: 100vh;
+	z-index: 1;
+}
+
+@media screen and (max-width: 768px) {
+	.videos-container iframe {
+	width: 100vw;
+	height: 50vh;
+	z-index: 1;
+	}
+}
+
+/*-------------------------------------------------------------------
         Photos page stuff
 -------------------------------------------------------------------*/
 
@@ -664,28 +734,78 @@ img.ricky-martin-lazyblocks-song-links-apple-img:hover {
         Search Page Stuff
 -------------------------------------------------------------------*/
 
-.search main, .search-results main, search-no-results main {
+.search main, .search-results main, search-no-results main, .page-template-search main {
 	width: 90%;
 	max-width: 700px;
-	margin: 15vh auto;
+	margin: 17vh auto 0;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
 }
 
+#searchbar {
+	display: flex;
+	justify-content: center;
+	background-color: var(--main-accent-color);
+	border-radius: 10px;
+	border: 1px solid white;
+	margin: auto;
+}
+
 #searchpagebutton {
 	background-color: var(--main-accent-color) !important;
 	color: var(--main-bg-color) !important;
-	font-family: 'Roboto', Tahoma, Geneva, sans-serif;
-	border-radius: 5px;
+	border-top-right-radius: 10px;
+	border-bottom-right-radius: 10px;
 	border: none;
-	padding: 0.25rem;
+	padding: 0.5rem 0.75rem;
+	font-size: 1.25rem;
+	cursor: grab;
+	overflow: hidden;
 }
 
 #searchpagebutton:hover {
 	background-color: var(--menu-hover-color) !important;
 	color: var(--main-fg-color) !important;
+}
+
+.search h2 {
+	margin: 1.5rem auto 0;
+	width: 95vw;
+	max-width: 700px;
+}
+
+.search h2:last-child {
+	margin-bottom: 1.5rem;
+}
+
+input#searchField {
+	background-color: var(--main-bg-color);
+	border-top-left-radius: 10px;
+	border-bottom-left-radius: 10px;
+	padding: 0.5rem 0.75rem;
+	border-right: 1px solid var(--main-fg-color);
+	border-bottom: none;
+	color: var(--main-fg-color);
+	font-size: 1.25rem;
+	border-color: none;
+}
+
+@media screen and (max-width: 370px) {
+	input#searchField {
+		max-width: 140px;
+	}
+}
+
+@media screen and (max-width: 310px) {
+	input#searchField {
+		max-width: 100px;
+		font-size: 1rem;
+	}
+	#searchpagebutton {
+		font-size: 1rem;
+	}
 }
 
 /*-------------------------------------------------------------------
@@ -730,7 +850,7 @@ img.ricky-martin-lazyblocks-song-links-apple-img:hover {
 
 
 /*switch to mobile nav*/
-@media screen and (max-width: 699px){
+@media screen and (max-width: 1014px){
     #nav_icon_burger_x {
         display: block;
 		  z-index: 900000000;
